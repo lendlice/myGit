@@ -1,0 +1,30 @@
+#! /usr/bin/bash
+
+# assume mobile host
+host() {
+	sudo bin/xianet -t -I wlan0 -V -l7
+} 
+
+# assume this router runs nameserver and redevous server
+gw_router() {
+	sudo bin/xianet -rRn -V -l7 start
+}
+
+router() {
+	sudo bin/xianet -r -V -l7 start
+}
+
+case "$1" in
+	host)
+		host
+	;;
+	gw_router)
+		gw_router
+	;;
+	router)
+		router
+	;;
+  *)
+  echo "usage $0 host | gw_router | router"
+esac
+
