@@ -47,5 +47,5 @@ case "$1" in
 		peer
 	;;	
   *)
-  echo "usage $0 host | gw_router | router | stop"
+  echo "usage $0 xia_install | install | host | peer"
 esac
