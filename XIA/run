@@ -1,8 +1,13 @@
 #! /usr/bin/bash
 
 # assume mobile host
-host() {
-	sudo bin/xianet -t -I wlan0 -V -l7
+mhost() {
+	sudo bin/xianet -t -I wlan0 -V -l7 start
+} 
+
+# assume fixed host
+fhost() {
+	sudo bin/xianet -t -I eth0 -V -l7 start
 } 
 
 # assume this router runs nameserver and redevous server

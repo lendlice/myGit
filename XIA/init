@@ -10,9 +10,14 @@ sudo apt-get install openssh-server
 sudo apt-get install git
 
 #git clone https://github.com/XIA-Project/xia-core.git
+#git checkout -b mobidemo
+#git branch intrinsic_security origin/intrinsic_security
+#git checkout intrinsic_security
+
 #cd xia-core
 #git pull
 #./configure
 #make
+#git checkout -b mobidemo # if not existed
 
 

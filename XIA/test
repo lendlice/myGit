@@ -1,37 +1,25 @@
 #! /usr/bin/bash
 
-# assume mobile host
-host() {
-	sudo bin/xianet -t -I wlan0 -V -l7
-} 
+IPHONE_MAC="30:F7:C5:4F:07:F1"
+LAPTOP_DELL_MAC="80:00:0b:3a:0d:72"
+LAPTOP_ASUS_MAC="00:08:ca:71:b9:fd"
+HOME_AP_MAC="0C:54:A5:E0:1B:28"
 
-# assume this router runs nameserver and redevous server
-gw_router() {
-	sudo bin/xianet -rRn -V -l7 start
-}
+# this is ramdom
+CMU_SECURE_MAC_1="00:1A:1E:1F:99:31"
+CMU_SECURE_MAC_2="00:1A:1E:1F:99:21"
 
-router() {
-	sudo bin/xianet -r -V -l7 start
-}
+LAB_EXP_AP_MAC="00:14:BF:F0:48:BF"
+XIADEMO3_MAC="48:5d:60:cb:83:50"
+LAB_XIADEMO6_MAC="80:86:F2:1A:CE:F8"
+LAB_XIADEMO7_MAC="80:86:F2:54:88:0F"
 
-stop() {
-	sudo bin/xianet stop
-}
+# home laptop
+#sudo wireshark -i mon0 -f "(ether dst 80:00:0b:3a:0d:72 and ether src 0C:54:A5:E0:1B:28) or (ether src 80:00:0b:3a:0d:72 and ether dst 0C:54:A5:E0:1B:28)" -I
+# lab laptop
+#sudo wireshark -i mon0 -f "(ether dst 80:00:0b:3a:0d:72 and ether src 00:14:BF:F0:48:BF) or (ether src 80:00:0b:3a:0d:72 and ether dst 00:14:BF:F0:48:BF)" -I
 
-case "$1" in
-	host)
-		host
-	;;
-	gw_router)
-		gw_router
-	;;
-	router)
-		router
-	;;
-	stop)
-		stop
-	;;	
-  *)
-  echo "usage $0 host | gw_router | router | stop"
-esac
-
+# home iphone
+#sudo wireshark -i mon0 -f "(ether dst 30:F7:C5:4F:07:F1 and ether src 0C:54:A5:E0:1B:28) or (ether src 30:F7:C5:4F:07:F1 and ether dst 0C:54:A5:E0:1B:28)" -I
+# lab iphone
+#sudo wireshark -i mon0 -f "(ether dst 30:F7:C5:4F:07:F1 and ether src 00:14:BF:F0:48:BF) or (ether src 30:F7:C5:4F:07:F1 and ether dst 00:14:BF:F0:48:BF)" -I
