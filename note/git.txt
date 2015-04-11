@@ -39,17 +39,17 @@ git commit --amend # in case forgot to add some files
 
 Undo operation
 	- example: git reset --hard HEAD~2
-	-	notes:
-		git reset			Commit-level	Discard commits in a private branch or throw away uncommited changes
-		git reset			File-level		Unstage a file
-		git checkout	Commit-level	Switch between branches or inspect old snapshots
-		git checkout	File-level		Discard changes in the working directory
-		git revert		Commit-level	Undo commits in a public branch
-		git revert		File-level		(N/A)
-		HEAD~# number of commits backwards between the current HEAD and the required commit
-		mixed - the default strategy. When this option is selected, the index is reset while the working tree is not, which means that changed files are preserved but not marked for commit. You are presented with a report of what has not been updated.
-		soft - when this option is selected, the index and the working tree are not affected, only the HEAD pointer is moved to the specified commit. Your current state with any changes remains different from the commit you are switching to. All the changes are "staged" for committing.
-		hard - when this option is selected, both the working directory and the index are changed to the specified commit.
+	- notes:
+	  git reset			Commit-level	Discard commits in a private branch or throw away uncommited changes
+	  git reset			File-level		Unstage a file
+	  git checkout	Commit-level	Switch between branches or inspect old snapshots
+	  git checkout	File-level		Discard changes in the working directory
+	  git revert		Commit-level	Undo commits in a public branch
+	  git revert		File-level		(N/A)
+	  HEAD~# number of commits backwards between the current HEAD and the required commit
+	  mixed - the default strategy. When this option is selected, the index is reset while the working tree is not, which means that changed files are preserved but not marked for commit. You are presented with a report of what has not been updated.
+	  soft - when this option is selected, the index and the working tree are not affected, only the HEAD pointer is moved to the specified commit. Your current state with any changes remains different from the commit you are switching to. All the changes are "staged" for committing.
+	  hard - when this option is selected, both the working directory and the index are changed to the specified commit.
 
 Temporarily store uncommitted work not including untracked files (used for when switching between branches), retrive it later and delete it
 git stash
