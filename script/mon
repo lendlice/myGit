@@ -1,0 +1,51 @@
+#! /usr/bin/bash
+
+# add the monitor interface in wlan0's channel
+add() {
+	sudo ip link set wlan0 down 
+	#sudo iw dev wlan0 set channel $CH
+	sudo iw phy phy0 interface add mon0 type monitor
+	sudo ip link set mon0 up	
+	sudo ip link set wlan0 up			
+}
+
+del() {
+	sudo iw dev mon0 del
+}
+
+# set wlan0 to monitor mode
+set() {
+	sudo ip link set wlan0 down 
+	sudo iw dev wlan0 set type monitor
+	#sudo iw dev wlan0 set channel $CH
+	sudo ip link set wlan0 up	
+	#ifconfig wlan0 down
+	#iwconfig wlan0 mode monitor
+	#iwconfig wlan0 channel 6
+	#ifconfig wlan0 upap
+}
+
+# set wlan0 back to managed mode
+unset() {
+	sudo ip link set wlan0 down 
+	sudo iw dev wlan0 set type managed
+	sudo ip link set wlan0 up	
+	#sudo iwconfig wlan0 essid $ESSID
+}
+
+case "$1" in
+	add)
+		add
+	;;
+	del)
+		del
+	;;
+	set)
+		set
+	;;
+	unset)
+		unset
+	;;	
+  *)
+  echo "usage $0 host | gw_router | router | stop"
+esac

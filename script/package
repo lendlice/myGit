@@ -1,0 +1,51 @@
+#! /usr/bin/bash
+
+sudo apt-get update
+
+# basic software/utilities
+sudo apt-get install gnome-tweak-tool gnome-session-fallback
+sudo apt-get install ibus-googlepinyin
+sudo apt-get install rar
+
+
+# research
+sudo apt-get install git
+sudo apt-get install openssh-server wireless-tools airmon-ng hwinfo hostapd bridge-utils isc-dhcp-server 
+sudo apt-get install icedtea-7-plugin openjdk-7-jre
+
+# cloud service
+sudo apt-get install nautilus-dropbox
+
+
+# media
+sudo apt-get install gimp
+
+sudo sh -c ‘echo “deb http://archive.canonical.com/ quantal partner” >> /etc/apt/sources.list’
+sudo apt-get update
+sudo apt-get install skype
+
+sudo apt-get install ubuntu-restricted-extras
+
+sudo apt-get install flashplugin-installer
+sudo apt-get install pepperflashplugin-nonfree
+sudo update-pepperflashplugin-nonfree --install
+
+sudo apt-get install vlc
+
+# grail
+sudo apt-get install libusb-dev
+sudo apt-get install libsqlite3-dev
+sudo apt-get install libcv-dev
+sudo apt-get install libhighgui-dev
+sudo apt-get install libcvaux-dev
+
+# latex
+sudo apt-get install texlive-latex-extra
+sudo apt-get install texlive-fonts-recommended
+
+# xia
+sudo apt-get install libprotobuf-dev protobuf-compiler openssl libssl-dev python-tk python-dev python-requests swig
+sudo apt-get install make g++
+sudo apt-get install doxygen python-sphinx
+sudo apt-get install libzmq3-dev python-zmq python-protobuf python-networkx python-matplotlib
+

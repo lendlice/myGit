@@ -1,0 +1,96 @@
+Tutorial
+http://git-scm.com/book/en/v2/
+
+Creating a repository from the current directory
+git init . # create locally
+git init --bare *****
+
+Add remote repository and fetch it
+git remote add myGit https://github.com/lendlice/myGit
+git fetch myGit
+
+Configure git
+git config -- global user.name "Chenren Xu"
+git config -- global user.email "chenren.xu@gmail.com"
+
+Clone a repository (clone command automatically names it origin for you, pulls down all its data, creates a pointer to where its master branch is, and names it origin/master locally)
+git clone git://path/to/repo.git # from remote server
+git clone https://github.com/username/repo.git # from github
+git clone ssh://username@192.168.0.1:/home/xia/xia-core # from a local server
+
+Check the states (modified, staged, commited) of the files changed
+git status
+
+Check the differences between any two trees
+git diff # between your working environment and your staging area
+git diff --staged # between your staging area and your last commit
+git diff master branchB # between two commits
+
+Check the commit log
+git log
+
+Get latest updates from remote copy
+git pull # git fetch && git merge
+
+Staging your changes index and merge them into the local repository
+git add foo.c && git commit -m "message" 
+git commit -a -m "message" # -a is the shortcut for all the files changed
+git commit --amend # in case forgot to add some files
+
+Undo operation
+	- example: git reset --hard HEAD~2
+	-	notes:
+		git reset			Commit-level	Discard commits in a private branch or throw away uncommited changes
+		git reset			File-level		Unstage a file
+		git checkout	Commit-level	Switch between branches or inspect old snapshots
+		git checkout	File-level		Discard changes in the working directory
+		git revert		Commit-level	Undo commits in a public branch
+		git revert		File-level		(N/A)
+		HEAD~# number of commits backwards between the current HEAD and the required commit
+		mixed - the default strategy. When this option is selected, the index is reset while the working tree is not, which means that changed files are preserved but not marked for commit. You are presented with a report of what has not been updated.
+		soft - when this option is selected, the index and the working tree are not affected, only the HEAD pointer is moved to the specified commit. Your current state with any changes remains different from the commit you are switching to. All the changes are "staged" for committing.
+		hard - when this option is selected, both the working directory and the index are changed to the specified commit.
+
+Temporarily store uncommitted work not including untracked files (used for when switching between branches), retrive it later and delete it
+git stash
+git stash list
+git stash apply # git stash apply stash@{#} 
+git stash clear # git stash drop <#>
+
+Push your changes into the remote repository
+git push
+
+Clone and checkout a branch
+git branch branch_name origin/branch_name
+git checkout branch_name
+
+Derive, create and delete a branch
+git checkout -b branch_name
+git branch -d branch_name
+
+Create and delete a remote branch
+git push -u origin branch_name 
+git push origin --delete branch_name
+
+Merge branches
+git checkout master
+git merge branch_name
+
+Un(track) files:
+git update-index --assume-unchanged foo.c
+git update-index --no-assume-unchanged foo.c
+
+Merge branches
+git branch branch_name && git checkout branch_name && ... && git checkout master && git merge branch_name
+
+Remove files from the staging area and working directory
+git rm
+
+Remove unwanted files from working directory (e.g., temporary build artifacts or merge conflict files)
+git clean
+
+Give a permanent bookmark to a specific point in the code history
+git tag tag_name && git push -- tags
+
+Jargons:
+HEAD: a pointer to the current local branch 
