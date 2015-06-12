@@ -23,9 +23,7 @@ run_open.dat as open access reference
 
 start as service
 add to /etc/rc.local:
-#service network-manager stop
-/etc/init.d/network-manager stop
+service network-manager stop
 /sbin/ifconfig wlan0 up
 /usr/local/bin/hotspotd start
 or chmod +x hotspotd.sh and add its full path to /etc/rc.local
-
